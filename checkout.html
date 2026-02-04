@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Checkout - Amazon Clone</title>
+
+<style>
+body{
+    font-family:Arial, sans-serif;
+    background:#e3e6e6;
+    padding:20px;
+}
+
+.container{
+    background:white;
+    padding:20px;
+    max-width:600px;
+    margin:auto;
+}
+
+h2{
+    margin-bottom:15px;
+}
+
+ul{
+    list-style:none;
+    padding:0;
+}
+
+li{
+    padding:10px 0;
+    border-bottom:1px solid #ddd;
+}
+
+.total{
+    font-size:18px;
+    margin-top:15px;
+    font-weight:bold;
+}
+
+button{
+    margin-top:20px;
+    padding:10px;
+    width:100%;
+    background:#ffd814;
+    border:none;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:#f7ca00;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Checkout</h2>
+
+    <ul id="checkoutItems"></ul>
+
+    <div class="total">
+        Total: ₹<span id="totalPrice">0</span>
+    </div>
+
+    <button onclick="placeOrder()">Place Order</button>
+</div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let pricePerItem = 499; // fake price
+let total = cart.length * pricePerItem;
+
+let list = document.getElementById("checkoutItems");
+
+cart.forEach(item=>{
+    let li = document.createElement("li");
+    li.innerText = item + " - ₹" + pricePerItem;
+    list.appendChild(li);
+});
+
+document.getElementById("totalPrice").innerText = total;
+
+function placeOrder(){
+    window.location.href = "payment.html";
+}
+</script>
+
+</body>
+</html>

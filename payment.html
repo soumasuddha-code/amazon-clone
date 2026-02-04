@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Payment - Amazon Clone</title>
+
+<style>
+body{
+    font-family:Arial, sans-serif;
+    background:#e3e6e6;
+    padding:20px;
+}
+
+.container{
+    background:white;
+    max-width:600px;
+    margin:auto;
+    padding:20px;
+}
+
+h2{
+    margin-bottom:15px;
+}
+
+.method{
+    border:1px solid #ddd;
+    padding:10px;
+    margin-bottom:10px;
+    cursor:pointer;
+}
+
+.method input{
+    margin-right:10px;
+}
+
+button{
+    margin-top:20px;
+    width:100%;
+    padding:12px;
+    background:#ffd814;
+    border:none;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#f7ca00;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Select Payment Method</h2>
+
+    <div class="method">
+        <input type="radio" name="pay" checked> UPI (Google Pay / PhonePe)
+    </div>
+
+    <div class="method">
+        <input type="radio" name="pay"> Debit / Credit Card
+    </div>
+
+    <div class="method">
+        <input type="radio" name="pay"> Cash on Delivery
+    </div>
+
+    <button onclick="payNow()">Pay Now</button>
+</div>
+
+<script>
+function payNow(){
+    alert("✅ Payment Successful!");
+    localStorage.removeItem("cart");
+    window.location.href = "success.html";
+}
+</script>
+
+</body>
+</html>
